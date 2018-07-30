@@ -1,0 +1,9 @@
+cmd/
+pkg/
+vendor/
+*.txt
+Gopkg*
+*.go
+Makefile
+*.md
+*.lua
