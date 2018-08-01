@@ -39,6 +39,19 @@ name                        allocs/op
 BufferedChallengeHandler-4     153 ± 0%
 ```
 
+After switching from encoding/json to github.com/json-iterator/go (only for BufferedHandler):
+```
+ λ benchstat buffered_bench.txt 
+name                        time/op
+BufferedChallengeHandler-4  19.1µs ± 7%
+
+name                        alloc/op
+BufferedChallengeHandler-4  12.7kB ± 0%
+
+name                        allocs/op
+BufferedChallengeHandler-4     133 ± 0%
+```
+
 ```
  λ benchstat streaming_bench.txt
 name                                 time/op

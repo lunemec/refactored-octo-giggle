@@ -82,11 +82,10 @@ func (n *Node) UnmarshalJSON(b []byte) error {
 func (n *Node) FromMap(m map[string]interface{}) error {
 	var (
 		err error
-		i   int
 	)
 
 	// Create slice of nodes of size len(input_map) to avoid reallocations.
-	n.Children = make([]*Node, len(m))
+	n.Children = make([]*Node, 0, len(m))
 	for k, v := range m {
 		node := Node{
 			Name:   k,
@@ -109,8 +108,7 @@ func (n *Node) FromMap(m map[string]interface{}) error {
 				}
 			}
 		}
-		n.Children[i] = &node
-		i++
+		n.Children = append(n.Children, &node)
 	}
 	return err
 }

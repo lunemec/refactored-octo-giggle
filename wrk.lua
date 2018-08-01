@@ -2,7 +2,7 @@ wrk.scheme = "http"
 wrk.host = "localhost"
 wrk.port = 8888
 wrk.method = "POST"
-wrk.path = "/api/v1/challenge"
+wrk.path = "/api/v1/buffered"
 wrk.headers["Content-Type"] = "application/json"
 
 wrk.body = [[
