@@ -80,6 +80,33 @@ func TestUnmarshalJSON(t *testing.T) {
 	assert.Equal(t, 2, len(node.Children), "incorrect number of children for root node")
 }
 
+func BenchmarkUnmarshalJSON(b *testing.B) {
+	var node api.Node
+	jsonData := `{
+		"facet1": {
+			"facet3": {
+				"facet4": {
+					"facet6": {
+						"count": 20
+					},
+					"facet7": {
+						"count": 30
+					}
+				},
+				"facet5": {
+					"count": 50
+				}
+			}
+		}, 
+		"facet2": {
+			"count": 0
+		}
+	}`
+	for i := 0; i < b.N; i++ {
+		json.Unmarshal([]byte(jsonData), &node)
+	}
+}
+
 func TestToMap(t *testing.T) {
 	expected := map[string]float64{
 		"facet1": 10,

@@ -1,11 +1,11 @@
 package api
 
 import (
-	"encoding/json"
 	"io"
 	"io/ioutil"
 	"net/http"
 
+	"github.com/json-iterator/go"
 	"github.com/kr/pretty"
 	"github.com/pkg/errors"
 )
@@ -40,7 +40,7 @@ func BufferedChallengeHandler(rw http.ResponseWriter, req *http.Request) error {
 	}
 	out.Result = mapToSlice(rootNode.ToMap())
 
-	enc := json.NewEncoder(rw)
+	enc := jsoniter.NewEncoder(rw)
 	return enc.Encode(&out)
 }
 
@@ -55,7 +55,7 @@ func unmarshal(r io.Reader) (*Node, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to read json body")
 	}
-	err = json.Unmarshal(b, &input)
+	err = jsoniter.Unmarshal(b, &input)
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to parse json")
 	}
@@ -67,7 +67,7 @@ func unmarshal(r io.Reader) (*Node, error) {
 func (n *Node) UnmarshalJSON(b []byte) error {
 	var v map[string]interface{}
 
-	err := json.Unmarshal(b, &v)
+	err := jsoniter.Unmarshal(b, &v)
 	if err != nil {
 		return err
 	}

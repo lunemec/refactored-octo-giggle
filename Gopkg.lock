@@ -38,6 +38,12 @@
   version = "v1.0"
 
 [[projects]]
+  name = "github.com/json-iterator/go"
+  packages = ["."]
+  revision = "ab8a2e0c74be9d3be70b3184d9acc634935ded82"
+  version = "1.1.4"
+
+[[projects]]
   name = "github.com/kr/pretty"
   packages = ["."]
   revision = "73f6ac0b30a98e433b289500d779f50c1a6f0712"
@@ -84,6 +90,18 @@
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
   revision = "f15292f7a699fcc1a38a80977f80a046874ba8ac"
+
+[[projects]]
+  name = "github.com/modern-go/concurrent"
+  packages = ["."]
+  revision = "bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94"
+  version = "1.0.3"
+
+[[projects]]
+  name = "github.com/modern-go/reflect2"
+  packages = ["."]
+  revision = "4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd"
+  version = "1.0.1"
 
 [[projects]]
   name = "github.com/pelletier/go-toml"
@@ -172,6 +190,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7557824c9fe6968874001c3901a22fd6a0687280cf63fded26aa911539270164"
+  inputs-digest = "6b8941c0abe693e40c2e93daa52582c7f8ffe34b62cee180b80a34555e4aac27"
   solver-name = "gps-cdcl"
   solver-version = 1
