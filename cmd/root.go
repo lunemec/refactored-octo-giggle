@@ -54,10 +54,6 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 	RootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "app.toml", "config file (default is app.toml)")
-	err := RootCmd.MarkFlagRequired("config")
-	if err != nil {
-		log.Error("Unable to mark flag as required", "flag", "config", "err", err)
-	}
 }
 
 // initConfig reads in config file and ENV variables if set.
